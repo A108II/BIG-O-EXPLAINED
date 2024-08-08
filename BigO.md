@@ -375,7 +375,7 @@ To understand the impact, consider the growth rate:
 - For \( n = 20 \), the number of calls is around \( 2^{20} = 1,048,576 \).
 
 ### O(n!) | Factorial time
-- The time complexity `O(n!)` is known as `factorial time complexity`. This is one of the highest and `least efficient` complexities, growing extremely fast as the input size (n) increases. It typically arises in algorithms that generate all permutations of a set or solve certain combinatorial problems.
+- The time complexity `O(n!)` is known as `factorial time complexity`. This is one of the highest and `least efficient` time complexities, growing extremely fast as the input size (n) increases. It typically arises in algorithms that generate all permutations of a set or solve certain combinatorial problems.
 
 #### JavaScript Implementation
 ```javascript
@@ -478,12 +478,11 @@ hola([1, 2, 3, 4, 5]);
 
 ### Space Complexity Analysis
 
-- In this example, the time complexity of this function is `O(n)`, but for the space complexity, we consider about the additional space, so we don't include the space taken up by the inputs. So, in general we don't care how big the input is; in other words we don't have a control on how many inputs this function is going to receive. We only have a control on what happens inside the function. Inside the function, the only space we're adding is `i`. So, this function has a `space complexity` of `O(1)`.
+- In this example, the time complexity of this function is `O(n)`, but for the space complexity, we consider about the additional space, this means we don't include the space taken up by the inputs. So, in general we don't care how big the input is; in other words we don't have a control on how many inputs this function is going to receive. We only have a control on what happens inside the function. Inside the function, the only space we're adding is `i`. So, this function has a `space complexity` of `O(1)`.
 
 - We are interested in the `additional space required by the algorithm`, `not including the space taken up by the input data`. This is because the input data is considered to be part of the problem statement, and the algorithm has no control over its size.
 
-- In the hola function, the only additional space used is the loop counter variable `i`. This variable is a primitive data type (in this case, a number), which takes a constant amount of space, regardless of the size of the input array n.
-Yes, there are several spelling and grammatical errors in the text. Here are the corrections:
+- In the HiNTimes function, the only additional space used is the loop counter variable `i`. This variable is a primitive data type (in this case, a number), which takes a constant amount of space, regardless of the size of the input array n.
 
 ### JavaScript Implementation
 
@@ -499,10 +498,6 @@ function HiNTimes(n) {
 
 HiNTimes(6);
 ```
-
-### Space Complexity Analysis
-
-- In this example, the space complexity is `O(n)`. Because we're creating an array and adding `n` items to this array with the help of loops. So, `n` items will reside inside the array and take up some space.
 
 ### Big O of arrays
 
@@ -527,3 +522,4 @@ HiNTimes(6);
 - `O(n^2)`: Loop within a loop
 
 - For more information, visit: https://www.bigocheatsheet.com/
+        
