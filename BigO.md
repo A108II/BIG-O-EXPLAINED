@@ -2,7 +2,7 @@
 
 ### Time complexity
 
-- It's important to know that we measure the performance of the code, not in terms of time itself, but in the `number of operations`, no matter how fast our computer is, the number of operations will be the same.
+- It's important to know that we measure the performance of the code, not in terms of time itself, but in the `number of operations`, no matter how fast the computer is, the number of operations will be the same.
 
 ### Omega - Lower bound (Best case)
 
@@ -10,17 +10,16 @@
 
 ### Theta - Tight bound (Average case)
 
-- Describes the `average case scenario`, it indicates what to generally expect from the time complexity. Accessing the middle index in an array (if we're searching from the begining of the array) is the average case which corresponds to theta
+- Describes the `average case scenario`, it indicates what to generally expect from the time complexity. Accessing the middle index in an array (if we're searching from the begining of the array) is the average case which corresponds to theta.
 
 ### Omicron (Big O) - Upper bound (Worst case)
 
 - If we have code number 1 and code number 2, Big O is here to help us distinguish which code runs more efficiently both in terms of time and space. Big O describes the `worst case scenario` for an algorithm. Accessing the last index in an array (if we're searching from the begining of the array) is the worst case which corresponds to omicron or big O.
 
 
-
 ### O(1) | Constant time
 
-- `O(1)` means the time complexity will be `constant`, no matter how many  inputs are in the array, the number of operations will be constant.
+- `O(1)` means the time complexity will be `constant`, no matter how many inputs are in the array, the number of operations will be constant.
 
 #### JavaScript Implementation
 ```javascript
@@ -119,13 +118,21 @@ pairItems(boxes);
 
 - The `pairItems` function takes an array `array` as input and performs the following operations:
 - It initializes a loop counter `i` to 0.
+
 - It checks if the loop counter `i` is less than the length of the `array`.
+
 - If the condition in step 2 is true, it initializes another loop counter `j` to 0.
+
 - It checks if the loop counter `j` is less than the length of the `array`.
+
 - If the condition in step 4 is true, it logs a message to the console that combines the elements at indices `i` and `j` of the `array`.
+
 - It increments the loop counter `j` by 1.
+
 - It repeats steps 4-6 until the loop counter `j` is no longer less than the length of the `array`.
+
 - It increments the loop counter `i` by 1.
+
 - It repeats steps 2-8 until the loop counter `i` is no longer less than the length of the `array`.
 
 - The key observation here is that the function has two nested loops. The outer loop iterates over the `array` once, and for each iteration of the outer loop, the inner loop iterates over the entire `array` again.
@@ -222,10 +229,6 @@ compressBoxesTwice(box, box2);
 
 - In the given example, where `box` has a length of 4 and `box2` has a length of 4, the time complexity will be O(4 * 4) = O(16), which is still considered O(m * n) because the constant factor (16) is ignored in the big O notation.
 
-- It's important to note that the time complexity of the `compressBoxesTwice` function is quadratic in the lengths of the input arrays. If the lengths of the input arrays increase, the running time of the function will increase quadratically, which can be inefficient for large input sizes.
-
-- This quadratic time complexity is due to the nested loops, where the inner loop iterates over `box2` for each iteration of the outer loop over `box`. This type of nested loop structure often leads to quadratic time complexity.
-
 4. `Drop non dominants`: The most dominant term will remain, and the other trivial factors will be ignored.
 
 #### JavaScript Implementation
@@ -299,18 +302,12 @@ console.log(`The index of ${target} is ${result}`)
 
 - The function initializes two variables `left` and `right` to represent the indices of the first and last elements of the array, respectively. This operation takes constant time, O(1).
 
-- The function enters a `while` loop that continues as long as `left` is less than or equal to `right`. In the worst case, this loop will run `log n + 1` times, where n is the length of the input array. Here's why:
+- The function enters a `while` loop that continues as long as `left` is less than or equal to `right`. In the worst case, this loop will run `log n` times, where n is the length of the input array. Here's why:
 
    - In each iteration of the loop, the function calculates the middle index `mid` by taking the average of `left` and `right`. This operation takes constant time, O(1).
    - Depending on whether the target value is less than, greater than, or equal to the value at the middle index, the function updates either `left` or `right` to narrow down the search range.
    - In the best case (when the target is found), the loop terminates immediately.
-   - In the worst case (when the target is not present in the array), the search range is halved in each iteration. This means that the number of iterations is proportional to the logarithm of the input size, specifically `log n + 1` iterations.
-
-- If the target value is found, the function returns the index `mid`. This operation takes constant time, O(1).
-
-- If the target value is not found, the function returns `-1`. This operation also takes constant time, O(1).
-
-Since the `while` loop dominates the time complexity, and it runs in logarithmic time O(log n), the overall time complexity of the `binarySearch` function is O(log n).
+   - In the worst case (when the target is not present in the array), the search range is halved in each iteration. This means that the number of iterations is proportional to the logarithm of the input size, specifically `log n` iterations.
 
 ### O(2^n) | Exponential time
 - The time complexity `O(2^n)` describes an algorithm whose running time `doubles` with each additional input element. The term "doubles with each additional element" means that if you increase the input size n by 1, the number of operations `approximately doubles`. This does not mean that the number of operations is simply twice the input value; rather, it refers to the exponential nature of the growth. This is one of the most inefficient time complexities and is often seen in problems involving exhaustive search, recursion, and combinations.
@@ -377,13 +374,6 @@ To understand the impact, consider the growth rate:
 - For \( n = 10 \), the number of calls is around \( 2^{10} = 1024 \).
 - For \( n = 20 \), the number of calls is around \( 2^{20} = 1,048,576 \).
 
-### Practical Implications
-
-Because the number of operations grows so rapidly, algorithms with \( O(2^n) \) complexity become infeasible very quickly. For example:
-- Calculating `fibonacci(40)` with the naive recursive approach would take an enormous amount of time and resources.
-- In practical applications, such algorithms are typically optimized or avoided in favor of more efficient approaches.
-
-
 ### O(n!) | Factorial time
 - The time complexity `O(n!)` is known as `factorial time complexity`. This is one of the highest and `least efficient` complexities, growing extremely fast as the input size (n) increases. It typically arises in algorithms that generate all permutations of a set or solve certain combinatorial problems.
 
@@ -399,6 +389,39 @@ function permute(arr) {
         }
         for (let i = 0; i < options.length; i++) {
             backtrack([...path, options[i]], options.slice(0, i).concat(options.slice(i + 1)));
+                   /* 
+       i = 0
+       backtrack([], [1])
+       backtrack([1], [2, 3])
+       backtrack([1, 2], [3])
+       backtrack([1, 2, 3], [])
+       returns to the previous call: ([1, 2], [3])
+       -------------------------- 
+        i + 1
+       returns to the previous call: ([1], [2,3])
+       backtrack([1, 3], [2])
+       backtrack([1, 3, 2], [])
+       returns to previous call: ([1, 3], [2])
+       returns to previous call: ([1], [2, 3])
+       i has itertated through all the element so it returns to [1, 2, 3]
+       --------------------------
+       */          /* 
+       i = 0
+       backtrack([], [1])
+       backtrack([1], [2, 3])
+       backtrack([1, 2], [3])
+       backtrack([1, 2, 3], [])
+       returns to the previous call: ([1, 2], [3])
+       -------------------------- 
+        i + 1
+       returns to the previous call: ([1], [2,3])
+       backtrack([1, 3], [2])
+       backtrack([1, 3, 2], [])
+       returns to previous call: ([1, 3], [2])
+       returns to previous call: ([1], [2, 3])
+       i has itertated through all the element so it returns to [1, 2, 3]
+       --------------------------
+       */   
         }
     }
 
@@ -417,10 +440,10 @@ console.log(permutations);
 
 ### Time Complexity Analysis
 
-- **Recursive Backtracking**: The `backtrack` function is used to generate permutations by recursively building each permutation.
-- **Path and Options**: `path` keeps the current permutation being built, and `options` contains the remaining elements to be permuted.
-- **Base Case**: When `options` is empty, a complete permutation (`path`) is added to `result`.
-- **Looping through Options**: For each element in `options`, the function recursively builds permutations, removing the current element from `options` and adding it to `path`.
+- Recursive Backtracking: The `backtrack` function is used to generate permutations by recursively building each permutation.
+- Path and Options: `path` keeps the current permutation being built, and `options` contains the remaining elements to be permuted.
+- Base Case: When `options` is empty, a complete permutation (`path`) is added to `result`.
+- Looping through Options: For each element in `options`, the function recursively builds permutations, removing the current element from `options` and adding it to `path`.
 
 ### Growth of \( O(n!) \)
 
